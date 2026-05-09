@@ -1,0 +1,45 @@
+name: mobile
+description: "National University CCIT Capstone Project - MERN Stack + Flutter"
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: ^3.10.8
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Networking - Your choice: Dio
+  dio: ^5.4.0
+
+  # State Management - For handling User Sessions/Global Data
+  provider: ^6.1.1
+
+  # Security - For storing JWT tokens from your Node.js backend
+  flutter_secure_storage: ^9.0.0
+
+  # Useful for handling Dates/Format (Common in Capstones)
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Asset section is pre-configured. 
+  # Just create a folder named 'assets' in the mobile root.
+  assets:
+    - assets/images/
+
+  # Example for fonts if your UI design requires it
+  # fonts:
+  #   - family: Montserrat
+  #     fonts:
+  #       - asset: assets/fonts/Montserrat-Regular.ttf
+  #       - asset: assets/fonts/Montserrat-Bold.ttf
+  #         weight: 700

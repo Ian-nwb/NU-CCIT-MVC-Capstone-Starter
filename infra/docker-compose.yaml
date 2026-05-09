@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: capstone_db
+    ports:
+      - "27018:27017" # Map Local Port 27018 to Container Port 27017
+    volumes:
+      - ./mongodb_data:/data/db # Bind mount for easy backups
+
+  mongo-express:
+    image: mongo-express
+    container_name: capstone_gui
+    restart: always
+    ports:
+      - "8085:8081" # Map Local Port 8085 to Container Port 8081
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_PORT=27017 # This stays 27017 (internal Docker network)
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=pass
+
+volumes:
+  mongodb_data:
