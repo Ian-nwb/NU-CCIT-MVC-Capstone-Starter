@@ -1,0 +1,43 @@
+name: Mobile CI
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'mobile/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'mobile/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.x'
+
+    - name: Get Flutter dependencies
+      run: flutter pub get
+      working-directory: ./mobile
+
+    - name: Run Flutter tests
+      run: flutter test
+      working-directory: ./mobile
+
+    - name: Build Flutter (Android)
+      run: flutter build apk --release
+      working-directory: ./mobile
+
+
+    # You can add steps for iOS build if you have macOS runners available
+    # - name: Build Flutter (iOS)
+    #   run: flutter build ios --release --no-codesign
+    #   working-directory: ./mobile
