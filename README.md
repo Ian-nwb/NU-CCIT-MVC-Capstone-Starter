@@ -52,7 +52,7 @@ React web app scaffolded with **Vite**. The browser-based **View** layer that co
 
 Skip this folder entirely if you're using MongoDB Atlas — see [Database Setup](#-database-setup-choose-one) below.
 
-### `novelty/`
+### `novelty(rename to your novelty)/`
 > ⚠️ **Intentionally left empty.**
 
 Populated by the team based on their chosen emerging technology:
